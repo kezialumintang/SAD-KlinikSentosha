@@ -9,15 +9,12 @@ import {
   Calendar,
   BarChart3,
   FileText,
-  Clock,
-  LogOut
+  Clock
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 
 const OwnerDashboard = () => {
   const navigate = useNavigate();
-  const { signOut } = useAuth();
 
   const stats = [
     { label: "Pendapatan Bulan Ini", value: "Rp 45.2jt", change: "+12%", icon: DollarSign, color: "bg-success" },
@@ -50,17 +47,7 @@ const OwnerDashboard = () => {
             <h1 className="text-2xl font-bold text-white mb-1">Dashboard Owner</h1>
             <p className="text-white/90">Klinik Sentosa - Overview</p>
           </div>
-          <div className="flex gap-2">
-            <Badge className="bg-white/20 text-white">Owner</Badge>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="text-white hover:bg-white/20"
-              onClick={signOut}
-            >
-              <LogOut className="w-6 h-6" />
-            </Button>
-          </div>
+          <Badge className="bg-white/20 text-white">Owner</Badge>
         </div>
 
         <div className="grid grid-cols-2 gap-3">

@@ -8,15 +8,12 @@ import {
   Clock,
   Activity,
   Stethoscope,
-  ChevronRight,
-  LogOut
+  ChevronRight
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 
 const DoctorDashboard = () => {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
 
   const todaySchedule = [
     { id: "A-024", name: "John Doe", time: "10:30", complaint: "Demam dan batuk", status: "waiting" },
@@ -37,19 +34,9 @@ const DoctorDashboard = () => {
         <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-2xl font-bold text-white mb-1">Dashboard Dokter</h1>
-            <p className="text-white/90">{user?.user_metadata?.full_name || 'Dokter'}</p>
+            <p className="text-white/90">Dr. Amanda Wijaya</p>
           </div>
-          <div className="flex gap-2">
-            <Badge className="bg-white/20 text-white">Dokter</Badge>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="text-white hover:bg-white/20"
-              onClick={signOut}
-            >
-              <LogOut className="w-6 h-6" />
-            </Button>
-          </div>
+          <Badge className="bg-white/20 text-white">Dokter</Badge>
         </div>
 
         <div className="grid grid-cols-3 gap-3">
