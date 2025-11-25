@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import BackButton from "@/components/ui/BackButton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ArrowLeft, Clock, User } from "lucide-react";
+import { Clock, User } from "lucide-react";
 import { toast } from "sonner";
 
 const timeSlots = [
@@ -47,14 +48,7 @@ const PatientBooking = () => {
   return (
     <div className="min-h-screen bg-gradient-medical-soft pb-20">
       <div className="bg-gradient-medical p-6 rounded-b-3xl shadow-medical mb-6">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/patient/dashboard")}
-          className="text-white hover:bg-white/20 mb-4"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Kembali
-        </Button>
+        <BackButton className="text-white hover:bg-white/20 mb-4" to="/patient/dashboard" />
         <h1 className="text-2xl font-bold text-white">Booking Kunjungan</h1>
         <p className="text-white/90">Pilih jadwal kunjungan Anda</p>
       </div>

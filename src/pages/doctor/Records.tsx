@@ -1,21 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, FileText } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import BackButton from "@/components/ui/BackButton";
+import { FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Records = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gradient-medical-soft p-6">
-      <Button
-        variant="ghost"
-        onClick={() => navigate("/doctor/dashboard")}
-        className="mb-4"
-      >
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Kembali
-      </Button>
+      <BackButton className="mb-4" to="/doctor/dashboard" />
 
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-3 mb-6">
@@ -26,8 +17,19 @@ const Records = () => {
         </div>
 
         <Card>
-          <CardContent className="p-8 text-center">
+          <CardContent className="p-8 text-center space-y-2">
             <p className="text-muted-foreground">Fitur rekam medis akan segera hadir</p>
+            <p>
+              Sementara ini, Anda dapat kembali ke{" "}
+              <Link to="/doctor/dashboard" className="text-primary underline">
+                Dashboard
+              </Link>{" "}
+              atau ke{" "}
+              <Link to="/doctor/patients" className="text-primary underline">
+                Daftar Pasien
+              </Link>
+              .
+            </p>
           </CardContent>
         </Card>
       </div>
