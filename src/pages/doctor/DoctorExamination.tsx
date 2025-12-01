@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BackButton from "@/components/ui/BackButton";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +11,7 @@ const DoctorExamination = () => {
 
   const [diagnosis, setDiagnosis] = useState("");
   const [prescription, setPrescription] = useState("");
+  const navigate = useNavigate();
 
   const handleSave = () => {
     // Implement saving logic here, e.g., send to backend API
@@ -18,7 +19,7 @@ const DoctorExamination = () => {
     console.log("Diagnosis:", diagnosis);
     console.log("Prescription:", prescription);
     alert("Diagnosis and prescription saved.");
-    window.location.href = "/doctor/dashboard"; // fallback navigation
+    navigate("/doctor/dashboard");
   };
 
   return (

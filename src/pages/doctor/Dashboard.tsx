@@ -29,6 +29,8 @@ const DoctorDashboard = () => {
     { label: "Dalam Antrean", value: "4", icon: Clock },
   ];
 
+  const currentPatient = todaySchedule.find((p) => p.status === "current");
+
   return (
     <div className="min-h-screen bg-gradient-medical-soft pb-20">
       <div className="bg-gradient-medical p-6 rounded-b-3xl shadow-medical">
@@ -67,7 +69,8 @@ const DoctorDashboard = () => {
               </div>
               <Button 
                 size="sm"
-                onClick={() => navigate("/DoctorExamination")}
+                disabled={!currentPatient}
+                onClick={() => currentPatient && navigate(`/doctor/examination/${currentPatient.id}`)}
               >
                 Mulai Periksa
               </Button>
@@ -92,7 +95,7 @@ const DoctorDashboard = () => {
                     ? "border-l-primary bg-primary/5" 
                     : "border-l-muted"
                 }`}
-                onClick={() => navigate(`/doctor/patient/${patient.id}`)}
+                onClick={() => navigate(`/doctor/examination/${patient.id}`)}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
