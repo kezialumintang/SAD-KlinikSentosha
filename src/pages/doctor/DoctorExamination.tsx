@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BackButton from "@/components/ui/BackButton";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,10 +16,7 @@ const DoctorExamination = () => {
 
   const handleSave = () => {
     // Implement saving logic here, e.g., send to backend API
-    console.log("Saving diagnosis and prescription for patient", id);
-    console.log("Diagnosis:", diagnosis);
-    console.log("Prescription:", prescription);
-    alert("Diagnosis and prescription saved.");
+    toast.success("Diagnosis and prescription saved.");
     navigate("/doctor/dashboard");
   };
 

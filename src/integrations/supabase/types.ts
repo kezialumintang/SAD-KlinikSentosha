@@ -59,6 +59,33 @@ export type Database = {
         }
         Relationships: []
       }
+      payments: {
+        Row: {
+          id: string;
+          created_at: string | null;
+          patient_id: string | null;
+          amount: number | null;
+          method: string | null; // 'cash' | 'card' | 'transfer'
+          note: string | null;
+        };
+        Insert: {
+          id?: string;
+          created_at?: string | null;
+          patient_id?: string | null;
+          amount?: number | null;
+          method?: string | null;
+          note?: string | null;
+        };
+        Update: {
+          id?: string;
+          created_at?: string | null;
+          patient_id?: string | null;
+          amount?: number | null;
+          method?: string | null;
+          note?: string | null;
+        };
+        Relationships: [];
+      }
     }
     Views: {
       [_ in never]: never
